@@ -1,0 +1,57 @@
+
+.showaccountpopup{
+    display: none
+}
+.accountpopup{
+    min-width: 260px;
+    margin-top: 3em;
+    margin-left: -9em;
+    padding: 10px;
+    position: absolute;
+    color: black;
+    background-color: white;
+    border: 0px solid lightgray;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 6px 5px 0 rgba(63, 6, 6, 0.12);
+
+    @media screen and (max-width:700px){
+        margin-left: -10em;
+      }
+}
+
+.myorders{
+    color: black;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.myorderslogout{
+    text-align: left;
+    padding-left: 20px;
+    }
+
+
+ul.headerlinks{
+    padding: 0px;
+}
+div.lidef{
+    display: flex;
+}
+ul.headerlinks div.lidef a{
+    padding: 0px;
+    display: flex;
+}
+.active{
+    color: white;
+}
+
+ul.headerlinks :hover{
+    background-color: #2f445c;
+    color: white;
+}
+   
+.buttonlogin{
+    border: 1px solid green;
+    background-color: white;
+    width: 13em;
+    height: 2em;
+}

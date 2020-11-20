@@ -1,0 +1,149 @@
+.cardinfo{
+    display: flex;
+    justify-content: center;
+    padding-top: 4vh;
+    @media screen and (max-width: 700px) {
+     flex-direction: column;
+    }
+
+  .firstbox{
+    display: flex;
+    justify-content:center;
+  
+    .cardbookImg{
+      height: 20em;
+      width: 15em;
+      @media screen and (max-width: 700px) {
+       height: 14em;
+      }
+    }
+  }
+  .secondbox{
+    display: flex;
+    flex-direction: column;
+    margin-left: 3em;
+    @media screen and (max-width: 700px) {
+      margin-left: 1em;
+    }
+
+    .cardbookdetailsflex{
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+
+      .cardbookName{
+        font-size: 1.5em;
+        color: black;
+        font-weight: 500;
+        padding-top: 3em;
+        padding-bottom: 4px;
+      
+        @media screen and (max-width: 700px) {
+          padding-top: 1em;
+        }
+      }
+      .cardauthorName{
+        font-size: 1.5em;
+        padding-left: -0.25em;
+        color: #9b9898;
+        @media screen and (max-width: 700px) {
+          padding-left: 0.50em;
+        }
+      }
+      .cardbookPrice{
+        font-weight: 600;
+        @media screen and (max-width: 700px) {
+          margin-left: 2em;
+        }
+      } 
+      .BooksAvailable{
+          margin-left: 10vw;
+          font-weight: 600;
+
+          @media screen and (max-width: 700px) {
+            margin-left: 25vw;
+          }
+      }     
+    }
+  .textbutton{
+    display: flex;
+    margin-top: 1em;
+    .textbox{
+        padding-right: 6vw;
+        padding-top: 1em;
+        padding-bottom: 1em;
+        @media screen and (max-width: 700px) {
+          margin-left: 9vw;
+          padding-right: 0vw;
+        }
+      }
+
+      .cardbuttononClick{
+        cursor: pointer;
+        width: 9em;
+        background-color: #E65B1E;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border: 0px;
+        @media screen and (max-width: 700px) {
+          font-size: 0.75em;
+        }
+      }
+      .cardbuttononClick:focus{
+        outline: none;
+      }
+      .cardbuttonunClicked{
+        cursor: pointer;
+        width: 9em;
+        background-color:#3ABDA6 ;
+        color: white;
+        border: 0px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
+      .cardbuttonunClicked:focus{
+        outline: none;
+      }
+      
+.button{
+    display: flex;
+    justify-content: center;
+    .buttonlabel{
+      padding-top: 0.75vh;
+      color: white;
+
+      @media screen and (min-width: 768px) and (max-width:1024px) {
+        padding-top: 0.3vh;
+      }
+
+    @media screen and (min-width: 1024px) and (max-width:1024px){
+      padding-top: 0.3vh;
+    }
+
+      @media screen and (max-width: 700px) {
+        padding-top: 0.5vh;
+      }
+    }
+  }
+  }
+}
+
+}
+.texterror{
+  text-align: initial;
+  @media screen and (max-width: 700px) {
+    margin-left: 2em;
+  }
+}
+.wishlist{
+  display: flex;
+  // margin-top: 2em;
+}
+
+hr.someClass {
+  background-color: purple;
+  width: 70%;
+  margin-left: initial;
+  // height: 0px;
+  border-top: 1px solid black
+}

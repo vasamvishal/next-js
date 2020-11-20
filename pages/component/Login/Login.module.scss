@@ -1,0 +1,104 @@
+
+.upperheader{
+  background-color: darkcyan;
+
+}
+.flex{
+  display: flex;
+  width: 42vw;
+  
+  @media screen and (max-width:700px){
+    width: 85vw;
+  }
+
+  @media screen and (max-width: 768px) and (min-width: 768px){
+    width: 62vw;
+    }
+
+  @media screen and (max-width: 1024px) and (min-width: 768px){
+      width: 50vw;
+    }
+}
+
+.checkboxcss{
+  display: flex;
+  padding-bottom: 2em;
+}
+.buttontext{
+  background-color: #6FB555;
+  width: 20em;
+  border-radius: 1em;
+  height: 2.2em;
+  border-bottom-style: none;
+  cursor: pointer;
+  color: white;
+}
+
+.buttontext:focus{
+  outline: none;
+}
+
+.backgroundbuttontext{
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.buttoncss{
+  margin-left: 7em;
+}
+
+.leftarticle{
+  background-image: url("../../../public/pexels-photo-1591447.jpeg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  height: auto;
+
+  @media screen and (max-width: 700px) {
+    display: none;
+  }
+}
+.rightarticle{
+  width: 55em;
+}
+.companyname{
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 1em;
+  cursor: pointer;
+}
+
+.logo{
+  display: flex;
+  color:black;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.header {
+  height: 5em;
+  background-color: purple;
+  width: 75em;
+}
+
+.loginbutton {
+  margin-left: 2em;
+}
+
+.account{
+  font-size: 1em;
+  font-weight: 600;
+  padding-left: 8em;
+  text-decoration:underline ;
+  cursor: pointer;
+
+  @media screen and (max-width:700px){
+    padding-left: 4em;
+  }
+}
+
+.forgotpassword{
+  padding-left: 6em;
+  font-weight: 100;
+  font-size: 0.9em;
+}

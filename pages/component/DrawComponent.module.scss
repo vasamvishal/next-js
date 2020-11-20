@@ -1,0 +1,36 @@
+// .checkout-main-box{
+
+.checkoutbox1{
+    display: none;
+
+    @media screen and (max-width: 700px){
+    display: flex;
+    justify-content: space-evenly;
+    bottom: 0;
+    background-color:aliceblue;
+    height: 3em;
+    position:fixed;
+    left:0;
+    width: 100%;
+    padding-top: 1em;
+    }
+}
+
+    .checkoutbutton{
+        background-color: #3ABDA6;
+        width: 10em;
+        height: 2.5em;
+        color: white;
+        border: 0px ;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+.checkout-button:focus{
+    outline: none;
+   }
+   .checkout-button:disabled{
+       opacity: 0.6;  
+       cursor: default;
+   }
+// }

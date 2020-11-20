@@ -1,0 +1,56 @@
+.helpbutton{
+    border-radius:50px;
+    margin-left:72em;
+    width: 80px;
+    height: 80px;
+    position: fixed;
+    margin-bottom: 1em;
+    bottom: 0%;
+    border: 0px;
+    background-color: #2f445c;
+
+    @media screen and (max-width:700px){
+        margin-left:22.5em;
+      }
+}
+.helpbutton:focus{
+    outline: none;
+}
+
+.opendialog{
+    padding-left: 4em;
+    margin-bottom: 6em;
+    position: fixed;
+    bottom: 0%;
+    margin-left: 43em;
+    width: 20em;
+    max-height: 30em;
+    height: 70em;
+    background-color: #F6F6F6;
+    overflow: scroll;
+    @media screen and (max-width:700px){
+        margin-left:0em;
+        width: 24em;
+        max-height: 39.5em;
+      }
+}
+
+.closedialog{
+    background-color: #2f445c;   
+}
+
+.formbutton{
+    height: 2em;
+    width: 14em;
+    // margin-left: 3em;
+    border: 0em;
+    background-color: #E0E0E0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media screen and (max-width:700px){
+        // margin-left:5.5em;
+      }
+}
+
+// style={{ height: "2em", width: "13em",marginLeft:"3em",border: "0px", backgroundColor: "#E0E0E0" }}
