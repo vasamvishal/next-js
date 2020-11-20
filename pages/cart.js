@@ -58,6 +58,8 @@ class AddToCart extends React.Component {
     }
 
     extractGetCartDetails = async() => {
+        // I would have used getserverside props but i would need an window object 
+        //i could not get in ssr 
         console.log("blahed");
         console.log("authenticted");
         if (this.state.isAuthenticated) {
