@@ -1,6 +1,7 @@
 import React from 'react'
 import jwt_decode from "jwt-decode";
-import BrowserService from "../../BrowserService/BrowserService"
+import BrowserService from "../../BrowserService/BrowserService";
+
 export default class ShowDetailsHamberGerMenu extends React.Component{
     render(){
         let name = BrowserService.getLocalStorageValue("user");

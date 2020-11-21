@@ -3,7 +3,7 @@ import styles from "./HamberGerMenu.module.scss";
 import MenuIcon from '@material-ui/icons/Menu';
 import HeaderMobile from "./HeaderMobile";
 import BrowserService from "../../BrowserService/BrowserService";
-import ShowDetailsHamberGerMenu from "../Component/ShowDetailsHamberGerMenu";
+import ShowDetailsHamberGerMenu from "../component/ShowDetailsHamberGerMenu";
 import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircle';
 
 class HamburgerMenuExport extends React.PureComponent {
