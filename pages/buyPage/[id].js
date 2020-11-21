@@ -7,8 +7,11 @@ import { addToCart, deleteFromCart, setInitialStateForBuyPage, redirectToCartPag
 import { Redirect } from "react-router-dom";
 import Router from 'next/router';
 import jwt_decode from "jwt-decode";
+import dynamic from "next/dynamic";
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import BrowserService from "../../BrowserService/BrowserService";
+// const BooksDetails = dynamic(import('../component/BooksDetails'));
+
 
 class BuyPage extends React.Component {
 

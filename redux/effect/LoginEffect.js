@@ -1,5 +1,6 @@
 import BrowserService from "../../BrowserService/BrowserService"
 export const loginToStorage = (item) => {
+    console.log(item,"item");
     const url = "https://springbootbackendjava.herokuapp.com/login";
     return fetch(`${url}`, {
         method: 'POST',

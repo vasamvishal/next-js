@@ -54,7 +54,7 @@ export default class account extends React.Component {
           </Card>
         </div>
         <br/>
-        <div style={{display:"flex",justifyContent:"center"}}><h2>Connect:&nbsp;&nbsp;</h2> <a href="https://www.linkedin.com/in/vishal-vasam-70b7611a8/" class="fa fa-linkedin"></a></div>
+        <div style={{display:"flex",justifyContent:"center"}}><h2>Connect:&nbsp;&nbsp;</h2> <a href="https://www.linkedin.com/in/vishal-vasam-70b7611a8/" className={`${styles.fa} ${styles.falinkedin}`}>ln</a></div>
         <br/>
         <br/>
       </>

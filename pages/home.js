@@ -9,8 +9,11 @@ import BrowserService from "../BrowserService/BrowserService";
 import HelpMenu from "./component/HelpMenu/HelpMenu";
 import Router from 'next/router';
 import dynamic from "next/dynamic";
-const BookDetailsComponent = dynamic(() => import('../pages/component/BookDetailsComponent'));
-const SiteHeader = dynamic(() => import('../pages/component/SiteHeader/SiteHeader'));
+// import BookDetailsComponent from "../pages/component/BookDetailsComponent";
+// import SiteHeader from "../pages/component/SiteHeader/SiteHeader";
+
+const BookDetailsComponent = dynamic(import('../pages/component/BookDetailsComponent'));
+const SiteHeader = dynamic(import('../pages/component/SiteHeader/SiteHeader'));
 
 class HomePage extends React.Component {
     didMount = false;
@@ -19,7 +22,6 @@ class HomePage extends React.Component {
     constructor(props) {
         super(props);
 
-        console.log("homePage", props);
         this.state = {
             books: [],
             pageOfItems: [],
@@ -43,11 +45,9 @@ class HomePage extends React.Component {
     }
 
     setPageData = async (payload) => {
-        console.log("blag");
         const res = await fetch(`https://springbootbackendjava.herokuapp.com/getAll?pageNo=${payload}&pageSize=10`)
         const posts = await res.json()
         this.setState({ pageOfItems: posts });
-        console.log("postsResult", posts)
         return {
             props: {
                 posts,

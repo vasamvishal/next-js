@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import Registration from '../Registartion/Registration';
 import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined';
 import BrowserService from "../../../BrowserService/BrowserService";
-import { login, setInitialState } from "../../../redux/action/LoginAction";
+import { login, loginFailure, LOGINFAILURE, loginSucess, LOGINSUCESS, setInitialState } from "../../../redux/action/LoginAction";
 
 class Login extends React.PureComponent {
     didMount = false;
@@ -39,6 +39,7 @@ class Login extends React.PureComponent {
     }
 
     componentDidUpdate(prevProps) {
+        console.log(prevProps, "prevProps");
         if (prevProps.status === 400 && this.didMount === false) {
             this.didMount = true;
             this.setState({ error: this.props.status })
@@ -66,14 +67,25 @@ class Login extends React.PureComponent {
         let password = this.state.password;
         let item = { userName, password }
         if (typeof window !== "undefined") {
-            const value = this.login(item)
-            value.then((response) => {
-                this.setState({ error: response.status}, () => {
-                    if (this.state.error === 200) {
-                        this.props.onClose();
+            // const value = 
+            // console.log(value,"value");
+            this.login(item)
+                .then((response) => {
+                    console.log(response.status, "status");
+                    if (response.status === 200) {
+                        this.props.loginSucess(response);
+                        // dispatch({ type: LOGINSUCESS, payload: response })
                     }
-                })
-            });
+                    else {
+                        this.props.loginFailure(response);
+                        // dispatch({ type: LOGINFAILURE, payload: response })
+                    }
+                    this.setState({ error: response.status }, () => {
+                        if (this.state.error === 200) {
+                            this.props.onClose();
+                        }
+                    })
+                });
         }
     }
 
@@ -95,6 +107,7 @@ class Login extends React.PureComponent {
                         BrowserService.setLocalStorageValue("token", pair[1])
                     }
                 }
+                // console.log(response.text(),"response");
                 let responseText = response.text();
                 return [responseText, response];
             }).then((data) => {
@@ -167,6 +180,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         "login": (item) => (dispatch(login(item))),
+        "loginSucess": (item) => (dispatch(loginSucess(item))),
+        "loginFailure": (item) => (dispatch(loginFailure(item))),
         "setInitialState": () => (dispatch(setInitialState()))
     };
 };
