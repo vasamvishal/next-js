@@ -21,6 +21,9 @@ class HomePage extends React.Component {
     searchData = false;
     constructor(props) {
         super(props);
+        console.log(props, "props");
+        // const { posts } = props;
+        // console.log(posts,"postd");
 
         this.state = {
             books: [],
@@ -36,11 +39,13 @@ class HomePage extends React.Component {
             show: true,
             expanded: null,
             value: false,
+            // blog: this.props.storeData,
             skeletonItems: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         }
     }
 
     componentDidMount() {
+        this.props.setInitialState();
         this.getPageResult();
     }
 
@@ -124,15 +129,14 @@ class HomePage extends React.Component {
             })
     }
 
-    searchValuePagination = (data) => {
-        this.setState({
-            pageOfItems: data
-        })
-    }
+    // searchValuePagination = (data) => {
+    //     this.setState({
+    //         pageOfItems: data
+    //     })
+    // }
 
     handlePageClick = (e) => {
         const selectedPage = e.selected;
-        console.log(selectedPage);
         this.setPageData(selectedPage);
         this.didMount = false;
     };
@@ -144,7 +148,7 @@ class HomePage extends React.Component {
                 return element.title.toLowerCase().includes(payload.toLowerCase());
             });
             this.setState({ pageOfItems: filteredData, clicked: false })
-            this.searchValuePagination(filteredData);
+            // this.searchValuePagination(filteredData);
         }
 
         else if (payload.length === 0) {
@@ -191,9 +195,12 @@ class HomePage extends React.Component {
 
     render() {
         console.log("expandedrender", this.state.expanded);
-        console.log(this.props.homePage.storeData, "propsrender");
+        // console.log(this.props.homePage.storeData, "propsrender");
         console.log("state", this.state.value);
-        console.log("Router", Router);
+        console.log("Router", this.props.storeData);
+        console.log("RRR", this.state.blog);
+        // const {homePage} = this.state.blog;
+        // console.log(homePage); 
         if (this.state.expanded) {
             const itemDetails = JSON.stringify(this.props.homePage.selectedBook);
             let id = this.props.homePage.selectedBook._id;
@@ -244,7 +251,7 @@ const mapDispatchToProps = (dispatch) => {
         "setState": () => (dispatch(setState())),
         "getPageCount": () => (dispatch(getPageCount())),
         "selectedBook": (item) => (dispatch(selectedBook(item))),
-        "setInitialState": (payload) => (dispatch(setIntialState(payload))),
+        "setInitialState": () => (dispatch(setIntialState())),
         "searchValue": () => (dispatch(searchValue()))
     };
 };

@@ -6,16 +6,6 @@ import { makeStyles } from '@material-ui/core/styles';
 
 // import Skeleton from "react-loading-skeleton";
 import Skeleton from '@material-ui/lab/Skeleton';
-// const useStyles = makeStyles({
-//     root: {
-//       width: 300,
-//       backgroundColor:"red"
-//       @media screen and (max-width: 700px){
-          
-//     }
-//     },
-//   });
-
   export default function SkeltonCart({itemsSkelton}) {
     // const classes = useStyles();  
         return (

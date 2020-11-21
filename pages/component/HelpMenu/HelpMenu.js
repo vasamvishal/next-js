@@ -4,7 +4,6 @@ import TextField from '@material-ui/core/TextField';
 import BrowserService from "../../../BrowserService/BrowserService";
 import CommentIcon from '@material-ui/icons/Comment';
 import CloseIcon from '@material-ui/icons/Close';
-import fireBaseNew from "../../../FireBase";
 import {checkForNameValidation} from "../../../formValidation";
 
 class HelpMenu extends React.Component {

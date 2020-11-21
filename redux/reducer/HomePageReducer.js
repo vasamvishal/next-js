@@ -27,11 +27,12 @@ export default (state = initialState, action) => {
         }
 
         case SET_INITIALSTATE: {
-            return loop(initialState, Cmd.run(extractDataFromStorage, {
-                successActionCreator: getBooksSucces,
-                failActionCreator: searchBooksFailureAction,
-                args: [action.payload]
-            }));
+            // return loop(initialState, Cmd.run(extractDataFromStorage, {
+            //     successActionCreator: getBooksSucces,
+            //     failActionCreator: searchBooksFailureAction,
+            //     args: [action.payload]
+            // }));
+            return {...state}
         }
 
         case GET_PAGE_COUNT: {

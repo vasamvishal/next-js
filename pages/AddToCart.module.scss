@@ -37,10 +37,11 @@
 .checkoutmainbox{
   margin-left: 45vh;
   margin-top: 2vh;
-  margin-right: 30vh;
+  margin-right: 45vh;
   height: auto;
   color: black;
   border:0.25px solid;
+
   @media screen and (max-width: 700px){
     margin-left: 3vw;
     margin-top: 2vh;
@@ -183,4 +184,11 @@
 }
 .cartDiv{
   padding-top: 2em;
+}
+
+.loader{
+  padding-left: 35em;
+  @media screen and (max-width: 700px){
+    padding-left: 5em;
+  }
 }

@@ -21,9 +21,8 @@ export const setState = () => ({
     type: SET_STATE,
 })
 
-export const setIntialState = (payload) => ({
+export const setIntialState = () => ({
     type: SET_INITIALSTATE,
-    payload
 })
 
 export const getBooksSucces = (payload) => ({

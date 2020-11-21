@@ -56,8 +56,9 @@ class SiteHeader extends React.PureComponent {
                             <HamburgerMenu />
                             {this.state.showSearch ? <div className={styles.searchIcon}>
                                 <SearchIcon onSearch={this.searchValue} />
-                            </div> : <div style={{ color: "#2f445c" }}>vvvvvvvvvvvvvvvvvvvvvvvv
-                            vvvccccccccccccccccccccccccccsdddddc</div>}
+                            </div> : 
+                            <div style={{ color: "#2f445c" }}>vvvvvvvvvvvvvvvvvvvvvvvv
+                            vvvcccccccccccccccccccccccccdddcsdddddc</div>}
                         </div>
                         <div className={styles.desktopicons}>
                             <HeaderIcons onSearch={this.searchValue} />

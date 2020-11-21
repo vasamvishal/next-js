@@ -11,6 +11,7 @@ import DrawerComponent from "../pages/component/DrawerComponent";
 import SkeletonCart from "./component/SkeltonCart"
 import dynamic from "next/dynamic";
 import Loader from 'react-loader-spinner';
+import Skeleton from "@material-ui/lab/Skeleton";
 const SucessComponent = dynamic(() => import('../pages/component/SucessComponent/SucessComponent'));
 const Checkout = dynamic(() => import('../pages/component/Checkout'));
 
@@ -37,7 +38,7 @@ class AddToCart extends React.Component {
         }
         if (this.isMethod) {
             setTimeout(() => {
-                this.setState({ isLoading: false,isLoadingNull:false })
+                this.setState({ isLoading: false, isLoadingNull: false })
             }, 1000)
             this.extractGetCartDetails();
         }
@@ -55,10 +56,10 @@ class AddToCart extends React.Component {
         }
     }
 
-    extractGetCartDetails = async() => {
+    extractGetCartDetails = async () => {
         // I would have used getserverside props but i would need an window object 
         //i could not get in ssr
-        
+
         if (this.state.isAuthenticated) {
             const token = BrowserService.getLocalStorageValue("token");
             var decoded = jwt_decode(token);
@@ -72,10 +73,10 @@ class AddToCart extends React.Component {
                 },
             }
         }
-        return{
-            props:{}
+        return {
+            props: {}
         }
-        
+
     }
 
     calculateSubTotal = (item) => {
@@ -109,8 +110,8 @@ class AddToCart extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        console.log(prevProps.loginForm.login,"prevprops");
-        console.log(this.props.loginForm.login,"props");
+        console.log(prevProps.loginForm.login, "prevprops");
+        console.log(this.props.loginForm.login, "props");
         if (prevProps.loginForm.login !== this.props.loginForm.login) {
             this.extractGetCartDetails();
         }
@@ -140,7 +141,7 @@ class AddToCart extends React.Component {
 
     }
 
-    
+
 
     abc = (items) => {
         return (
@@ -185,17 +186,19 @@ class AddToCart extends React.Component {
                             <>
                                 <div className={styles.checkoutmainbox}>
                                     {this.state.showComponent ? <SucessComponent items={this.state.item} /> :
-                                        <>{this.state.isLoading ? <SkeletonCart itemsSkelton={this.state.item}/> : this.abc(this.state.item)}</>}
+                                        <>{this.state.isLoading ? <SkeletonCart itemsSkelton={this.state.item} /> : this.abc(this.state.item)}</>}
                                     <div className={styles.checkoutbox}>
-                                        <div style={{ fontWeight: "bold", display: "flex", paddingTop: "0.25em", paddingLeft: "0.75em" }}>Sub Total:&nbsp;<div style={{ fontWeight: '600' }}>{price}</div></div>
-                                        <div><Checkout amount={price} close={this.handleClose} /></div>
+                                        {this.state.isLoading ? <Skeleton width="15em" height="2em"/> : <>
+                                            <div style={{ fontWeight: "bold", display: "flex", paddingTop: "0.25em", paddingLeft: "0.75em" }}>Sub Total:&nbsp;<div style={{ fontWeight: '600' }}>{price}</div></div>
+                                            <div><Checkout amount={price} close={this.handleClose} /></div>
+                                        </>}
                                     </div>
-                                    <DrawerComponent amount={price} showComponent={this.showComponent} close={this.handleCloseOpen} />
+                                    <DrawerComponent amount={price} showComponent={this.showComponent} close={this.handleCloseOpen} loading={this.state.isLoading}/>
                                 </div>
                                 <br />
                             </>
                             : <>
-                                {this.state.isLoadingNull ? <div style={{paddingLeft:"30em"}}><Loader type="TailSpin" color="#00BFFF" height={500} width={200} timeout={2000} /> </div>: <div className={styles.cartImage} />}
+                                {this.state.isLoadingNull ? <div className={styles.loader}><Loader type="TailSpin" color="#00BFFF" height={500} width={200} timeout={200000} /> </div> : <div className={styles.cartImage} />}
                             </>
                         }
                     </div>

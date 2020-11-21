@@ -12,9 +12,9 @@ export default class ShowDetails extends React.PureComponent {
         let phoneNumber = parseInt(decoded.sub);
         return (
             <div style={{ padding: "-1px 106px 0px 0px" }}>
-                <div style={{textAlign:"center"}}><span>Hi</span>&nbsp;
+                <div style={{marginLeft:"5vh"}}><span>Hi</span>&nbsp;
                 <span>{name}</span></div>
-                <div style={{ textAlign: "center", fontSize: "15px", color: "#9d9d9d" }}> +91&nbsp;{phoneNumber}</div>
+                <div style={{ marginLeft:"4vh", fontSize: "15px", color: "#9d9d9d" }}> +91&nbsp;{phoneNumber}</div>
             </div>
         )
     }
