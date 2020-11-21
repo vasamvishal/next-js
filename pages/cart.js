@@ -29,11 +29,9 @@ class AddToCart extends React.Component {
             isLoadingNull: true,
             item: []
         }
-        console.log("props constructor",Router);
     }
 
     componentDidMount() {
-        console.log(typeof window, "type");
         if (typeof window !== "undefined") {
             this.getToken();
         }
@@ -60,17 +58,13 @@ class AddToCart extends React.Component {
     extractGetCartDetails = async() => {
         // I would have used getserverside props but i would need an window object 
         //i could not get in ssr 
-        console.log("blahed");
-        console.log("authenticted");
         if (this.state.isAuthenticated) {
             const token = BrowserService.getLocalStorageValue("token");
             var decoded = jwt_decode(token);
             let phoneNumber = decoded.sub;
             const res = await fetch(`https://springbootbackendjava.herokuapp.com/getCartDetails/${phoneNumber}`)
             const posts = await res.json()
-            console.log(posts,"posts");
             this.setState({ item: posts });
-            console.log("postsResult", posts)
             return {
                 props: {
                     posts,
@@ -80,25 +74,6 @@ class AddToCart extends React.Component {
         return{
             props:{}
         }
-    
-            // const url = `https://springbootbackendjava.herokuapp.com/getCartDetails/${phoneNumber}`;
-            // return fetch(`${url}`, {
-            //     mode: "cors",
-            //     headers: {
-            //         'Accept': 'application/json',
-            //     },
-            // })
-            //     .then((response) => {
-            //         return response.json()
-            //     }).then((data) => {
-            //         console.log("ewdata", data);
-            //         this.setState({ item: data })
-            //         return data
-            //     }).catch((err) => {
-            //         return Promise.reject("Error Occured while Fetching Customers " + err);
-            //     });
-       
-
     }
 
     calculateSubTotal = (item) => {
@@ -123,12 +98,10 @@ class AddToCart extends React.Component {
 
     getToken = () => {
         const value = BrowserService.getLocalStorage();
-        console.log(value.token);
         if (value.token === undefined || value.token === null) {
             this.setState({ isAuthenticated: false });
         }
         else {
-            console.log("tokenne");
             this.setState({ isAuthenticated: true });
         }
     }
@@ -192,9 +165,7 @@ class AddToCart extends React.Component {
     }
 
     render() {
-        console.log(this.state.item,"item");
         this.calculateSubTotal(this.state.item);
-        
         return (
             <>
                 <SiteHeader />

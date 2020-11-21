@@ -6,7 +6,6 @@ export default class Checkout extends React.PureComponent {
 
     constructor(props){
         super(props);
-        console.log(props,"props");
     }
     token=()=>{
         this.props.close()

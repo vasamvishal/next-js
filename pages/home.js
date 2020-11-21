@@ -8,7 +8,6 @@ import SkeletonCard from "../pages/component/SkeletonCard"
 import BrowserService from "../BrowserService/BrowserService";
 import HelpMenu from "./component/HelpMenu/HelpMenu";
 import Router from 'next/router';
-import Link from "next/link";
 import dynamic from "next/dynamic";
 const BookDetailsComponent = dynamic(() => import('../pages/component/BookDetailsComponent'));
 const SiteHeader = dynamic(() => import('../pages/component/SiteHeader/SiteHeader'));
@@ -37,8 +36,6 @@ class HomePage extends React.Component {
             value: false,
             skeletonItems: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         }
-        // console.log(this.props.props);
-        // this.setExpanded();
     }
 
     componentDidMount() {
@@ -89,8 +86,6 @@ class HomePage extends React.Component {
     }
 
     recievedData = (data) => {
-        console.log("recieved", this.state.countNoOfPages);
-        console.log(this.state.countNoOfPages / this.state.perPage);
         const slice = data.slice(this.state.offset, this.state.offset + this.state.perPage)
         this.setState({
             paginationValue: Math.ceil(this.state.countNoOfPages / this.state.perPage),
@@ -199,9 +194,7 @@ class HomePage extends React.Component {
         console.log(this.props.homePage.storeData, "propsrender");
         console.log("state", this.state.value);
         console.log("Router", Router);
-        // this.setExpanded(this.props.homepage)
         if (this.state.expanded) {
-            console.log("blah");
             const itemDetails = JSON.stringify(this.props.homePage.selectedBook);
             let id = this.props.homePage.selectedBook._id;
             BrowserService.setLocalStorageValue("selectedBook", itemDetails);
@@ -235,7 +228,6 @@ class HomePage extends React.Component {
                             <br />
                             <br />
                         </div>
-                        {/* <HelpMenu /> */}
                     </div>
                 </div>
             </>

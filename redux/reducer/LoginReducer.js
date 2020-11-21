@@ -12,7 +12,6 @@ export const initialState = {
 export default (state = initialState, action) => {
     switch (action.type) {
         case LOGIN: {
-            console.log(action.type,"type");
             return loop(state, Cmd.run(loginToStorage, {
                 successActionCreator: loginSucess,
                 failActionCreator: loginFailure,
@@ -21,8 +20,6 @@ export default (state = initialState, action) => {
         }
 
         case LOGINSUCESS: {
-            console.log(action.type,"type");
-            console.log(action.payload,"payload");
             return {
                 ...state,
                 loginData: action.payload,
@@ -32,8 +29,6 @@ export default (state = initialState, action) => {
         }
 
         case LOGINFAILURE: {
-            console.log(action.type,"type");
-            console.log(action.payload,"payload");
             return {
                 ...state,
                 loginData:[],

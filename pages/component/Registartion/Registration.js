@@ -156,7 +156,6 @@ class Registration extends React.PureComponent {
             .then((response) => {
                 return response;
             }).then((data) => {
-                // console.log("dyaya",data.status);
                 this.setState({error:data.status})
                 return data;
             })

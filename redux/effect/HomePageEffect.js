@@ -16,7 +16,6 @@ export const extractDataFromStorage = (payload) => {
 }
 
 export const getPageCount = () => {
-    console.log("fdfffff");
     return fetch(`https://springbootbackendjava.herokuapp.com/getBooksData`, {
         mode: "cors",
         headers: {
@@ -34,7 +33,6 @@ export const getPageCount = () => {
 }
 
 export const getPageResult = (payload) => {
-    console.log("cdcdaxaxdds");
     return fetch(`https://springbootbackendjava.herokuapp.com/searchBook`, {
         mode: "cors",
         headers: {

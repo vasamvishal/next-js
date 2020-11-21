@@ -7,18 +7,12 @@ export default (state = { value: 0, frog: [] }, action) => {
     switch (action.type) {
 
         case FETCH_POST: {
-            console.log(action.type);
-            console.log("firsdt");
             return loop(state, Cmd.run(registerUser, {
                 successActionCreator: registerSucess,
                 failActionCreator: registerFailure,
-                // args: [action.payload]
             }))
-            // return {...state,frog:"ddd"}
         }
         case REGISTER_SUCESS: {
-            console.log("register Sucess");
-            console.log(action.payload);
             return { ...state, frog: action.payload }
         }
 
@@ -27,7 +21,6 @@ export default (state = { value: 0, frog: [] }, action) => {
         }
 
         case INCREMENT_COUNTER: {
-            console.log(action.type);
             return { ...state, value: state.value + 1 };
         }
 
@@ -37,6 +30,4 @@ export default (state = { value: 0, frog: [] }, action) => {
             return { ...state };
     }
 };
-// const makeStore = context => createStore(counterReducer);
 
-// export const wrapper = createWrapper(makeStore, { debug: true });

@@ -1,6 +1,5 @@
 import BrowserService from "../../BrowserService/BrowserService"
 export const loginToStorage = (item) => {
-    console.log(item,"itemaction");
     const url = "https://springbootbackendjava.herokuapp.com/login";
     return fetch(`${url}`, {
         method: 'POST',
@@ -23,7 +22,6 @@ export const loginToStorage = (item) => {
         }).then((data) => {
             data[0].then((data)=>BrowserService.setLocalStorageValue("user",data));
             var response = data[1];
-            console.log(response,"response");
             return response;
         })
         .catch((err) => {

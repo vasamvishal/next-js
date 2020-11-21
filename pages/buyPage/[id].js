@@ -9,7 +9,6 @@ import Router from 'next/router';
 import jwt_decode from "jwt-decode";
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import BrowserService from "../../BrowserService/BrowserService";
-import Link from "next/link";
 
 class BuyPage extends React.Component {
 
@@ -21,17 +20,9 @@ class BuyPage extends React.Component {
 
     constructor(props) {
         super(props);
-        console.log(props,"BuyPage");
-        console.log(Router,"router");
-        try {
-            console.log("ROUTER", Router);
-          } catch (e) {
-            console.log("ERR", e);
-          }
         this.state = {
             clicked: true,
             booksData: [],
-            // bookId: Router.router.query.id,
             noOfBooks: "",
             isAuthenticated: false,
             cartData:[]
@@ -52,7 +43,6 @@ class BuyPage extends React.Component {
         let bookDetails = JSON.parse(BrowserService.getLocalStorageValue("selectedBook"));
         return Object.keys(bookDetails).map((key) => {
             if (key === "_id" ) {
-                console.log(bookDetails,"bookDetails");
                 this.setState({ booksData: bookDetails })
             }
         });
@@ -105,7 +95,6 @@ class BuyPage extends React.Component {
     }
 
     render() {
-        console.log("rettttttbuypage");
         if (this.props.buyBookDetails.deletedFromCart) {
             Router.push(`/home`)
         }
@@ -138,12 +127,6 @@ class BuyPage extends React.Component {
         )
     };
 }
-
-// export async function getServerSideProps(context) {
-//     return {
-//       props: {}, // will be passed to the page component as props
-//     };
-//   }
 
 const mapStateToProps = (state) => {
     return state

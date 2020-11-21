@@ -62,16 +62,12 @@ class Login extends React.PureComponent {
     }
 
     renderMainPage = () => {
-        // console.log(this.props,"props");
         let userName = this.state.userName;
         let password = this.state.password;
         let item = { userName, password }
-        console.log(item, "item");
         if (typeof window !== "undefined") {
             const value = this.login(item)
-            console.log(value, "value");
             value.then((response) => {
-                console.log(response.status);
                 this.setState({ error: response.status}, () => {
                     if (this.state.error === 200) {
                         this.props.onClose();
@@ -104,7 +100,6 @@ class Login extends React.PureComponent {
             }).then((data) => {
                 data[0].then((data) => BrowserService.setLocalStorageValue("user", data));
                 var response = data[1];
-                // console.log(response, "response");
                 return response;
             })
             .catch((err) => {
@@ -166,7 +161,6 @@ class Login extends React.PureComponent {
     }
 }
 const mapStateToProps = (state) => {
-    console.log(state.loginForm, "state");
     return state.loginForm;
 }
 

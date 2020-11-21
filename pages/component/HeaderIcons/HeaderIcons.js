@@ -41,7 +41,6 @@ class HeaderIcons extends React.PureComponent {
     }
 
     renderSearchIcon = () => {
-        console.log(Router, "locatipmn");
         if (Router.pathname.match("/home")) {
             this.setState({ showSearch: true })
         }

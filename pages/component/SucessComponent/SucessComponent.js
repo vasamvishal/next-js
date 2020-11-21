@@ -10,14 +10,12 @@ import jwt_decode from "jwt-decode";
 class SucessComponent extends React.PureComponent {
     constructor(props) {
         super(props);
-        console.log(props,"props");
         this.state = {
             isLoading: true
         }
     }
 
     deleteAllCartDetails = (payload) => {
-        console.log(payload,"payload");
         const token = BrowserService.getLocalStorageValue("token");
         var decoded = jwt_decode(token);
         let phoneNumber = decoded.sub;

@@ -19,7 +19,6 @@ export const initialState = {
 export default (state = initialState, action) => {
     switch (action.type) {
         case SELECTED_BOOKS: {
-            console.log("acxtion",action.type);
             return { ...state, selectedBook: action.payload, storeData: !state.storeData }
         }
 
