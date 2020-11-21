@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "next/Link";
+import Link from "next/link";
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import {MemoizedIcon} from "../../IconComponent";

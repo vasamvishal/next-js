@@ -3,7 +3,6 @@ import styles from "./PopupButton.module.scss";
 import SignUp from '../component/SignUp/SignUp';
 import { connect } from 'react-redux';
 import { logout } from "../../redux/action/PopupButtonAction";
-import { NavLink } from 'react-router-dom';
 import Link from "next/link";
 import ShowDetails from '../component/ShowDetails';
 import FavoriteIcon from '@material-ui/icons/Favorite';
