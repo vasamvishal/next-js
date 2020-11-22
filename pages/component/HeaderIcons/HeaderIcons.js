@@ -90,6 +90,15 @@ class HeaderIcons extends React.PureComponent {
         }
     }
 
+    onChange = () => {
+        if (typeof window !== "undefined") {
+            Router.push({
+                pathname: '/home',
+                locale: `${id}`
+            })
+        }
+    }
+
     render() {
         // <Link
         //     href={{
@@ -101,20 +110,23 @@ class HeaderIcons extends React.PureComponent {
         return (
             <>
                 <ul className={styles.headerexample}>
-                    <li id="home" className={styles.home}>
-                        <Link href="/home" as={`/home`}>
+                    {typeof window !== "undefined" ? 
+                    <>
+                    <li id="home" className={Router.pathname !== "/home" ? styles.home : `${styles.home} ${styles.active}`} >
+                        <Link href="/home" as="home">
                             <a> XBAY </a>
                         </Link>
-                    </li>
+                        </li>
+                  
 
-                    <li id="aboutUs" className={styles.aboutUs} >
+                    <li id="aboutUs" className={Router.pathname !== "/account" ? styles.aboutUs : `${styles.aboutUs} ${styles.active}`}>
                         <Link href="/account" as="/account">
                             <a><LabelImportantIcon />&nbsp;&nbsp;
                         <div>About&nbsp;Us</div></a>
                         </Link>
                     </li>
 
-                    <li id="cart-desktop" className={styles.cartdesktop}>
+                    <li id="cart-desktop" className={Router.pathname !== "/cart" ? styles.cartdesktop : `${styles.cartdesktop} ${styles.active}`}>
                         <Link href="/cart" as="/cart">
                             <a><ShoppingCartIcon />&nbsp;&nbsp;
                         <div>Cart</div></a>
@@ -144,6 +156,8 @@ class HeaderIcons extends React.PureComponent {
                                 <SearchIcon onSearch={this.search} />
                             </div> : ""
                     }
+                    </>
+                       : ""}
                 </ul >
             </>
         )

@@ -5,7 +5,7 @@ import {wrapper} from '../redux/stores';
 class MyApp extends App {
     static async getInitialProps({Component, ctx}) {
         const pageProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {};
-
+        
         //Anything returned here can be access by the client
         return {pageProps: pageProps};
     }

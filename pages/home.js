@@ -9,9 +9,6 @@ import BrowserService from "../BrowserService/BrowserService";
 import HelpMenu from "./component/HelpMenu/HelpMenu";
 import Router from 'next/router';
 import dynamic from "next/dynamic";
-// import BookDetailsComponent from "../pages/component/BookDetailsComponent";
-// import SiteHeader from "../pages/component/SiteHeader/SiteHeader";
-
 const BookDetailsComponent = dynamic(import('../pages/component/BookDetailsComponent'));
 const SiteHeader = dynamic(import('../pages/component/SiteHeader/SiteHeader'));
 
@@ -21,10 +18,11 @@ class HomePage extends React.Component {
     searchData = false;
     constructor(props) {
         super(props);
-        console.log(props, "props");
+        console.log(props?.homePage.storeData, "props");
         // const { posts } = props;
         // console.log(posts,"postd");
 
+        //refactor state 
         this.state = {
             books: [],
             pageOfItems: [],
@@ -37,9 +35,8 @@ class HomePage extends React.Component {
             paginationValue: 0,
             clicked: true,
             show: true,
-            expanded: null,
+            expanded: props?.homePage.storeData,
             value: false,
-            // blog: this.props.storeData,
             skeletonItems: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         }
     }
@@ -58,31 +55,23 @@ class HomePage extends React.Component {
                 posts,
             },
         }
-
     }
 
     static getDerivedStateFromProps(props, state) {
-        // console.log("propsred", props);
-        console.log("getDerivedFromProps");
-        // console.log("propsStore", props.homePage);
-        console.log("stateexpanded", state.expanded);
-        console.log("vlaue", state.value);
-         if (state.expanded === null) {
-            let { storeData } = props.homePage;
-            console.log("store", storeData);
+        console.log(props.homePage.storeData, "props");
+        console.log(state.expanded, "state");
+        if (typeof window !== "undefined") {
+        console.log(Router, "Router");
+        }
+        if (props.homePage.storeData !== state.expanded) {
             return {
-                expanded: storeData
+                expanded: !state.expanded
             }
         }
-        else if (props.homePage.storeData !== state.expanded && state.expanded !== null ) {
-            console.log("storeData", props.homePage.storeData);
+        else if (state.expanded === true && Router.route === "/home") {
             return {
-                expanded: props.homePage.storeData,
-            }
-        }
-        else if (state.expanded === true && Router.asPath === "/home" && typeof window !== "undefined") {
-            return {
-                expanded: false,
+                expanded: !state.expanded,
+                data: false
             }
         }
         else {
@@ -129,11 +118,6 @@ class HomePage extends React.Component {
             })
     }
 
-    // searchValuePagination = (data) => {
-    //     this.setState({
-    //         pageOfItems: data
-    //     })
-    // }
 
     handlePageClick = (e) => {
         const selectedPage = e.selected;
@@ -195,12 +179,8 @@ class HomePage extends React.Component {
 
     render() {
         console.log("expandedrender", this.state.expanded);
-        // console.log(this.props.homePage.storeData, "propsrender");
         console.log("state", this.state.value);
-        console.log("Router", this.props.storeData);
-        console.log("RRR", this.state.blog);
-        // const {homePage} = this.state.blog;
-        // console.log(homePage); 
+        console.log("Router", this.props.homePage.storeData);
         if (this.state.expanded) {
             const itemDetails = JSON.stringify(this.props.homePage.selectedBook);
             let id = this.props.homePage.selectedBook._id;

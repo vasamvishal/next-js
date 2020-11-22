@@ -8,6 +8,7 @@ import { decrementCounter, incrementCounter, fetchPost } from '../redux/action/c
 
 class App extends React.Component {
   componentDidMount(){
+    //homePage logic should be here
     Router.push(`/home`, undefined, { shallow: true })
   }
 

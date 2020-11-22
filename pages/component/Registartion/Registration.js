@@ -17,6 +17,7 @@ import UserSucessfulRegistration from '../../component/UserSucessfulRegistration
 class Registration extends React.PureComponent {
     constructor(props) {
         super(props);
+        //refactor state 
         this.state = {
             open: true,
             firstNameError: false,

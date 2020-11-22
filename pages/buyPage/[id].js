@@ -19,6 +19,8 @@ class BuyPage extends React.Component {
         this.props.setInitialStateForBuyPage();
         this.getBookFromID(this.state.bookId);
         this.getToken();
+        // select options
+        //server side rendering for book data
     }
 
     constructor(props) {

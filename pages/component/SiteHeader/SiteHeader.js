@@ -58,7 +58,7 @@ class SiteHeader extends React.PureComponent {
                                 <SearchIcon onSearch={this.searchValue} />
                             </div> : 
                             <div style={{ color: "#2f445c" }}>vvvvvvvvvvvvvvvvvvvvvvvv
-                            vvvcccccccccccccccccccccccccdddcsdddddc</div>}
+                            vvvccccccccccccccccccccccccccsdddddc</div>}
                         </div>
                         <div className={styles.desktopicons}>
                             <HeaderIcons onSearch={this.searchValue} />

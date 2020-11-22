@@ -17,7 +17,7 @@ const Checkout = dynamic(() => import('../pages/component/Checkout'));
 
 
 let price = 0;
-
+//debounce 
 class AddToCart extends React.Component {
     isMethod = true;
 
