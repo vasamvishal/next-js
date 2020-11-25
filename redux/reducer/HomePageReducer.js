@@ -27,12 +27,13 @@ export default (state = initialState, action) => {
         }
 
         case SET_INITIALSTATE: {
+            console.log(action.type, "payload setInitialState");
             // return loop(initialState, Cmd.run(extractDataFromStorage, {
             //     successActionCreator: getBooksSucces,
             //     failActionCreator: searchBooksFailureAction,
             //     args: [action.payload]
             // }));
-            return {...state}
+            return { ...initialState }
         }
 
         case GET_PAGE_COUNT: {

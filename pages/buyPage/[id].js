@@ -100,6 +100,7 @@ class BuyPage extends React.Component {
     }
 
     render() {
+        console.log(Router, "Router");
         if (this.props.buyBookDetails.deletedFromCart) {
             Router.push(`/home`)
         }

@@ -18,30 +18,25 @@ class HomePage extends React.Component {
     searchData = false;
     constructor(props) {
         super(props);
-        console.log(props?.homePage.storeData, "props");
-        // const { posts } = props;
-        // console.log(posts,"postd");
+        console.log(props?.homePage.storeData, "propsDog");
 
         //refactor state 
         this.state = {
-            books: [],
             pageOfItems: [],
             offset: 0,
             data: [],
             perPage: 10,
-            currentPage: 0,
             countNoOfPages: [],
             searchData: [],
             paginationValue: 0,
             clicked: true,
-            show: true,
             expanded: props?.homePage.storeData,
-            value: false,
             skeletonItems: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         }
     }
 
     componentDidMount() {
+        console.log("Fruit");
         this.props.setInitialState();
         this.getPageResult();
     }
@@ -60,22 +55,25 @@ class HomePage extends React.Component {
     static getDerivedStateFromProps(props, state) {
         console.log(props.homePage.storeData, "props");
         console.log(state.expanded, "state");
+        console.log(Router, "RouterNew");
         if (typeof window !== "undefined") {
-        console.log(Router, "Router");
-        }
-        if (props.homePage.storeData !== state.expanded) {
-            return {
-                expanded: !state.expanded
+             console.log(Router, "Router");
+            if (props.homePage.storeData !== state.expanded) {
+                console.log("props1",props.homePage.storeData);
+                return {
+                    expanded: !state.expanded
+                }
             }
-        }
-        else if (state.expanded === true && Router.route === "/home") {
-            return {
-                expanded: !state.expanded,
-                data: false
+            else if (state.expanded === true && Router.query.name === "Home") {
+                console.log("props2",state.expanded);
+                return {
+                    expanded: !state.expanded,
+                    data: false
+                }
             }
-        }
-        else {
-            return null;
+            else {
+                return null;
+            }
         }
     }
 
@@ -179,7 +177,7 @@ class HomePage extends React.Component {
 
     render() {
         console.log("expandedrender", this.state.expanded);
-        console.log("state", this.state.value);
+        // console.log("state", this.state.value);
         console.log("Router", this.props.homePage.storeData);
         if (this.state.expanded) {
             const itemDetails = JSON.stringify(this.props.homePage.selectedBook);

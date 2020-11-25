@@ -100,64 +100,57 @@ class HeaderIcons extends React.PureComponent {
     }
 
     render() {
-        // <Link
-        //     href={{
-        //         pathname: `/buyPage/${id}`,
-        //         query: { id: `${id}` },
-        //     }} as={`/buyPage/${id}`}
-        // >
-        // </Link>
         return (
             <>
                 <ul className={styles.headerexample}>
-                    {typeof window !== "undefined" ? 
-                    <>
-                    <li id="home" className={Router.pathname !== "/home" ? styles.home : `${styles.home} ${styles.active}`} >
-                        <Link href="/home" as="home">
-                            <a> XBAY </a>
-                        </Link>
-                        </li>
-                  
+                    {typeof window !== "undefined" ?
+                        <>
+                            <li id="home" className={Router.pathname !== "/home" ? styles.home : `${styles.home} ${styles.active}`} >
+                                <Link href={{ pathname: "/home", as: "/vlah" }}>
+                                    <a> XBAY </a>
+                                </Link>
+                            </li>
 
-                    <li id="aboutUs" className={Router.pathname !== "/account" ? styles.aboutUs : `${styles.aboutUs} ${styles.active}`}>
-                        <Link href="/account" as="/account">
-                            <a><LabelImportantIcon />&nbsp;&nbsp;
+
+                            <li id="aboutUs" className={Router.pathname !== "/account" ? styles.aboutUs : `${styles.aboutUs} ${styles.active}`}>
+                                <Link href="/account" as="/account">
+                                    <a><LabelImportantIcon />&nbsp;&nbsp;
                         <div>About&nbsp;Us</div></a>
-                        </Link>
-                    </li>
+                                </Link>
+                            </li>
 
-                    <li id="cart-desktop" className={Router.pathname !== "/cart" ? styles.cartdesktop : `${styles.cartdesktop} ${styles.active}`}>
-                        <Link href="/cart" as="/cart">
-                            <a><ShoppingCartIcon />&nbsp;&nbsp;
+                            <li id="cart-desktop" className={Router.pathname !== "/cart" ? styles.cartdesktop : `${styles.cartdesktop} ${styles.active}`}>
+                                <Link href="/cart" as="/cart">
+                                    <a><ShoppingCartIcon />&nbsp;&nbsp;
                         <div>Cart</div></a>
-                        </Link>
-                    </li>
+                                </Link>
+                            </li>
 
-                    <li id="account-data" className={styles.accountdata} onClick={this.accountDetails}>
-                        <AccountCircleRoundedIcon className={styles.defeee} />&nbsp;&nbsp;
+                            <li id="account-data" className={styles.accountdata} onClick={this.accountDetails}>
+                                <AccountCircleRoundedIcon className={styles.defeee} />&nbsp;&nbsp;
                         <div>Account</div>
-                        {this.state.accountDetails ? <div><PopupButton onCloseSignUpPage={this.closeSignUpPageOnAccountPage} onCloseAccountPage={this.closeAccountDetails} isAuthenticated={this.state.isAuthenticated} /></div> : ""}
-                    </li>
+                                {this.state.accountDetails ? <div><PopupButton onCloseSignUpPage={this.closeSignUpPageOnAccountPage} onCloseAccountPage={this.closeAccountDetails} isAuthenticated={this.state.isAuthenticated} /></div> : ""}
+                            </li>
 
-                    {
-                        this.state.isAuthenticated === false ?
-                            <li id="signUp" className={styles.signUp} onClick={this.signUpPage}> <AccountBoxIcon />&nbsp;&nbsp;
+                            {
+                                this.state.isAuthenticated === false ?
+                                    <li id="signUp" className={styles.signUp} onClick={this.signUpPage}> <AccountBoxIcon />&nbsp;&nbsp;
                         <div>Sign&nbsp;Up</div>
-                                {this.state.signUpPage && this.props.logoutPopinButton.logout === false ? <div><SignUp onCloseSignUpPage={this.closeSignUpPage} /></div> : ""}
-                            </li>
-                            : <li id="logout" className={styles.logout} onClick={this.props.logout}> <ExitToAppIcon />&nbsp;&nbsp;
+                                        {this.state.signUpPage && this.props.logoutPopinButton.logout === false ? <div><SignUp onCloseSignUpPage={this.closeSignUpPage} /></div> : ""}
+                                    </li>
+                                    : <li id="logout" className={styles.logout} onClick={this.props.logout}> <ExitToAppIcon />&nbsp;&nbsp;
                         <div>Logout</div>
-                            </li>
-                    }
+                                    </li>
+                            }
 
-                    {
-                        this.state.showSearch ?
-                            <div className={styles.searchDef}>
-                                <SearchIcon onSearch={this.search} />
-                            </div> : ""
-                    }
-                    </>
-                       : ""}
+                            {
+                                this.state.showSearch ?
+                                    <div className={styles.searchDef}>
+                                        <SearchIcon onSearch={this.search} />
+                                    </div> : ""
+                            }
+                        </>
+                        : ""}
                 </ul >
             </>
         )
