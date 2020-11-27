@@ -209,7 +209,7 @@ class HomePage extends React.Component {
                                     onPageChange={this.handlePageClick}
                                     containerClassName={styles.pagination}
                                     subContainerClassName={`{styles.pages} {styles.pagination}`}
-                                    activeClassName={"active"} /> : ""}
+                                    activeClassName={styles.active} /> : ""}
                             <br />
                             <br />
                             <br />
