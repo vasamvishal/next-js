@@ -18,6 +18,7 @@ class HomePage extends React.Component {
     searchData = false;
     constructor(props) {
         super(props);
+        console.log(props,"props-sed");
         console.log(props?.homePage.storeData, "propsDog");
 
         //refactor state 
@@ -53,19 +54,19 @@ class HomePage extends React.Component {
     }
 
     static getDerivedStateFromProps(props, state) {
-        console.log(props.homePage.storeData, "props");
+        console.log(props.header, "propsdialogue");
         console.log(state.expanded, "state");
         console.log(Router, "RouterNew");
         if (typeof window !== "undefined") {
-             console.log(Router, "Router");
+            console.log(Router, "Router");
             if (props.homePage.storeData !== state.expanded) {
-                console.log("props1",props.homePage.storeData);
+                console.log("props1", props.homePage.storeData);
                 return {
                     expanded: !state.expanded
                 }
             }
-            else if (state.expanded === true && Router.query.name === "Home") {
-                console.log("props2",state.expanded);
+            else if (state.expanded === true && props.header.selectedHeader === true) {
+                console.log("props2", state.expanded);
                 return {
                     expanded: !state.expanded,
                     data: false

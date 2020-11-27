@@ -13,7 +13,7 @@ import SignUp from "../SignUp/SignUp";
 import PopupButton from "../../component/PopupButton";
 import BrowserService from "../../../BrowserService/BrowserService";
 import LabelImportantIcon from '@material-ui/icons/LabelImportant';
-import { logout } from "../../../redux/action/HeaderIconsAction";
+import { logout,selectedHeader} from "../../../redux/action/HeaderIconsAction";
 let id = "Home";
 
 class HeaderIcons extends React.PureComponent {
@@ -99,6 +99,11 @@ class HeaderIcons extends React.PureComponent {
         }
     }
 
+    header=()=>{
+        
+    }
+
+
     render() {
         return (
             <>
@@ -107,7 +112,7 @@ class HeaderIcons extends React.PureComponent {
                         <>
                             <li id="home" className={Router.pathname !== "/home" ? styles.home : `${styles.home} ${styles.active}`} >
                                 <Link href={{ pathname: "/home", as: "/vlah" }}>
-                                    <a> XBAY </a>
+                                    <a onClick={this.props.selectedHeader}> XBAY </a>
                                 </Link>
                             </li>
 
@@ -161,7 +166,8 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        "logout": () => (dispatch(logout()))
+        "logout": () => (dispatch(logout())),
+        "selectedHeader": () => (dispatch(selectedHeader()))
     }
 }
 

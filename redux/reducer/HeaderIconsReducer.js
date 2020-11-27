@@ -3,7 +3,8 @@ import {
     REDIRECT_TO_ACCOUNT_PAGE,
     REDIRECT_TO_CART_PAGE,
     REDIRECT_TO_HOME_PAGE,
-    REDIRECT_TO_SIGNUP_PAGE
+    REDIRECT_TO_SIGNUP_PAGE,
+    SELECTED_HEADER
 } from "../action/HeaderIconsAction";
 import { logout } from "../effect/HeaderIconsEffect";
 
@@ -13,7 +14,8 @@ export const initialState = {
     homePage: false,
     signUpPage: false,
     aboutUs: false,
-    selectedPage: 1
+    selectedPage: 1,
+    selectedHeader: false
 }
 
 export default (state = initialState, action) => {
@@ -31,11 +33,16 @@ export default (state = initialState, action) => {
         case REDIRECT_TO_HOME_PAGE: {
             return { ...state, homePage: true, selectedPage: 4 }
         }
+
+        case SELECTED_HEADER: {
+            console.log(action.type,"type");
+            return { ...state, selectedHeader: true }
+        }
         case LOGOUT: {
             logout()
             break;
         }
-        
+
         default:
             return state
     }
